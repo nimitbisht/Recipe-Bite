@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <!-- Google Tag Manager -->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KGSD498G');</script> -->
+
+  <!-- End Google Tag Manager -->
+  
+      <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-FSGM1LF6XJ"></script>
+
+    <script>
+      
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FSGM1LF6XJ');
+
+    </script> -->
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Bite- Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='motion.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+      <!-- 006 search and background start -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <!-- 006 search and background End -->
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='grow.css') }}">
+
+
+
+
+
+<!-- FADE -->
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<!-- Simple Body css start -->
+    <!-- <style>
+      body {background-color: #ffffff;}
+      .search-container {
+          height: 40vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+  </style> -->
+<!-- Simple Body css END -->
+  </head>
+
+
+  <body>
+<!-- NAVBAR START -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" onclick="clickEffect(event)">
+  <div class="container">
+          <!-- <a class="navbar-brand" href="#">Logo</a> -->
+          <a class="navbar-brand" href="#">Recipe Bite
+            
+            <img src="{{ url_for('static', filename='images/logo3.gif') }}" alt="Logo" width="47" height="47">
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#about-us">About </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('recommended') }}">Recommend</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+<!-- NAVBAR END -->
+
+
+
+<div id="cursor-follower" style="position: absolute; width: 20px; height: 20px; border-radius: 50%; background: rgba(255, 0, 0, 0.5); pointer-events: none; display: none;"></div>
+
+
+<!-- Motion Animation Start -->
+<div class="area" onclick="clickEffect(event)">
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+
+<!-- 006 search and background start -->
+<div class="s006">
+
+
+  
+  <form>
+    <br> <br>
+    <fieldset>
+      <legend data-aos="zoom-in" data-aos-duration="1000">
+      <br> Welcome to <span class="gradient-text">RECIPE  </span>BITE
+   </legend>
+
+
+      <h1></h1>
+      <!-- <h1>Try to discover your recipe</h1> -->
+      <!-- Experience the joy of cooking with Recipe Bite today! -->
+      <div class="inner-form">
+        <!-- data-aos="fade-right" data-aos-duration="2000" -->
+        <div class="input-field">
+          <button id="btn-search" class="btn-search" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+            </svg>
+          </button>
+          <input id="search" type="text"  placeholder="Search For Recipes..." oninput="toggleClearButton()" onkeypress="return searchKeyPress(event)" />
+          <!-- <input id="search" type="text" placeholder="Search For Recipes..." oninput="toggleClearButton()" /> -->
+
+          <button class="btn-clear" type="button" onclick="clearSearch()" style="display: none;">
+            &#x274C; <!-- This is a Unicode 'X' character -->
+          </button>
+          <!-- data-aos="zoom-in" data-aos-duration="2000" -->
+          <div  id="dish_image" class="image" data-aos="fade-left" data-aos-duration="2000" >
+            <img id="myImage" src="{{ url_for('static', filename='images/top/top1.png') }}" alt="Main Image" >
+        </div>
+        </div>
+      </div>
+      <div class="suggestion-wrap" data-aos="fade-up" data-aos-duration="2000">
+        <span id="ingredients-trigger">Ingredients</span>
+        <!-- <span id="nutrients-trigger">Nutrients</span> -->
+        <span id="category-trigger">category</span>
+        <span id="rating-trigger">Minimum Rating</span>
+      </div>
+      <div id="ingredients-panel" class="hidden panel">
+        <input type="text" id="ingredient-search" class="search-input" placeholder="Search ingredients...">
+        <div id="ingredient-list" class="list"></div>
+        <button type="button"  id="submit-btn" class="btn">Filter Ingredients</button>
+      </div>
+      <!-- <div id="nutrients-panel" class="hidden panel">
+        <input type="text" id="nutrient-search" class="search-input" placeholder="Search nutrients...">
+        <div id="nutrient-list" class="list"></div>
+        <button type="button"  id="submit-nutrients" class="btn">Filter Nutrients</button>
+      </div> -->
+      <div id="category-panel" class="hidden panel">
+        <input type="text" id="category-search" class="search-input" placeholder="Search dietary category...">
+        <div id="category-list" class="list"></div>
+        <button type="button"  id="submit-category" class="btn">Category</button>
+      </div>
+      <div id="rating-panel" class="hidden panel">
+        <label>Rating: <input type="number" min="1" max="5" step="1" id="rating-input"></label>
+        <button type="button"  id="submit-rating" class="btn">Filter Rating</button>
+      </div>
+
+      <!-- <br><br><br><br>      <br><br><br><br> -->
+    </fieldset>
+  </form>
+</div>
+
+</div>
+
+<!-- 006 search and background End -->
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row" id="about-us" >
+      <h4>About Us</h4>
+        <p>Welcome to <strong class="fs-5">Recipe Bite</strong>, a dynamic web application designed to help you find the perfect meal effortlessly.
+          <br><br>
+          <span>Our Mission : At Recipe Bite, our mission is to simplify meal planning and make cooking a delightful experience for everyone.
+           <br> We believe that finding the right recipe should be easy and personalized to fit your unique tastes and dietary needs.</span>
+<p> What We Offer : It offers detailed information for each recipe and personalized recipe recommendations based on your added preferences.</p>
+      <div class="col-md-4">
+        <ul class="list-unstyled">
+        </ul>
+      </div>
+      <!-- <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p>------------</p>
+        <p>Email: example@example.com</p>
+        <p>Phone: +123456789</p>
+      </div> -->
+    </div>
+    <hr style="border-color: rgba(255, 255, 255, 0.1);">
+    <div class="row">
+      <div class="col-md-6">
+        <p>&copy; 2024 @major_project.</p>
+        <!-- <p> All rights reserved.</p> -->
+      </div>
+      <!-- <div class="col-md-6 text-md-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+          <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+          <li class="list-inline-item"><a href="#">Sitemap</a></li>
+        </ul>
+      </div> -->
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='motion.js') }}"></script> -->
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+
+    // Trigger search when Enter key is pressed
+    $('#search').keypress(function(event) {
+      if (event.which == 13) {
+          event.preventDefault(); // Prevent form submission
+          search(); // Call the search function
+      }
+  });
+
+  // Trigger search when the search button is clicked
+  $('#btn-search').click(function() {
+      search(); // Call the search function
+  });
+
+
+    // Trigger rating filter when the rating filter button is clicked
+    $('#submit-rating').click(function(event) {
+      event.preventDefault(); // Prevent default form submission
+      var query = $('#search').val(); // Get the search query
+      console.log('Search Query:', query); // Log the search query to the console
+      var minRating = $('#rating-input').val();
+      var selectedIngredients = getSelectedIngredients(); 
+      var selectedCategory = getSelectedCategory(); // Get selected category
+      // Construct the query string with both parameters
+      var queryString = 'query=' + encodeURIComponent(query) +
+      '&min_rating=' + minRating +
+      '&ingredients=' + encodeURIComponent(selectedIngredients) +
+      '&category=' + encodeURIComponent(selectedCategory);      // Redirect to search.html with both parameters
+      window.location.href = '/search.html?' + queryString;
+    });
+
+    // Trigger Ingredients filter when the  filter button is clicked
+    $('#submit-btn').click(function(event) {
+      event.preventDefault(); // Prevent default form submission
+      var query = $('#search').val(); // Get the search query
+      console.log('Search Query:', query); // Log the search query to the console
+      var minRating = $('#rating-input').val();
+      var ingredient_list = $('#ingredient-search').val();
+      var selectedIngredients = getSelectedIngredients(); 
+      var selectedCategory = getSelectedCategory(); // Get selected category
+      // Construct the query string with both parameters
+      var queryString = 'query=' + encodeURIComponent(query) +
+      '&min_rating=' + minRating +
+      '&ingredients=' + encodeURIComponent(selectedIngredients) +
+      '&category=' + encodeURIComponent(selectedCategory);
+            // Redirect to search.html with both parameters
+      window.location.href = '/search.html?' + queryString;
+    });
+    
+    // Function to get selected ingredients
+    function getSelectedIngredients() {
+      var selectedIngredients = [];
+      $('#ingredient-list input[type="checkbox"]:checked').each(function() {
+          selectedIngredients.push($(this).val());
+      });
+      return selectedIngredients.join(','); // Join ingredients into a comma-separated string
+  }
+    
+
+
+  // Trigger category filter when the category filter button is clicked
+  $('#submit-category').click(function(event) {
+    event.preventDefault(); // Prevent default form submission
+    var query = $('#search').val(); // Get the search query
+    var minRating = $('#rating-input').val(); // Get the minimum rating
+    var selectedIngredients = getSelectedIngredients(); // Get selected ingredients
+    var selectedCategory = getSelectedCategory(); // Get selected category
+    // Construct the query string with all parameters
+    var queryString = 'query=' + encodeURIComponent(query) +
+                      '&min_rating=' + minRating +
+                      '&ingredients=' + encodeURIComponent(selectedIngredients) +
+                      '&category=' + encodeURIComponent(selectedCategory);
+    // Redirect to search.html with all parameters
+    window.location.href = '/search.html?' + queryString;
+  });
+
+  // Function to get selected dietary category
+  function getSelectedCategory() {
+    var selectedCategory = [];
+    $('#category-list input[type="checkbox"]:checked').each(function() {
+      selectedCategory.push($(this).val());
+    });
+    return selectedCategory.join(','); // Join category into a comma-separated string
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Define the search function
+  function search() {
+      var query = $('#search').val();
+      // Redirect to search.html with the search query as a parameter
+      window.location.href = '/search.html?query=' + encodeURIComponent(query);
+  }
+});
+    
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Selecting the image element from the DOM
+    const myImage = document.getElementById('myImage');
+  
+    // Parsing the JSON string to get the image sources
+    const imageSources = JSON.parse('{{ top_images_json | safe }}');
+  
+    // Generating a random index to select a random image source
+    const randomIndex = Math.floor(Math.random() * imageSources.length);
+    // Setting the src attribute of the image to the randomly selected image source initially
+    myImage.src = imageSources[randomIndex];
+
+    // Function to change the image every 17 seconds (17000 milliseconds)
+    setInterval(function() {
+      const randomIndex = Math.floor(Math.random() * imageSources.length);
+      myImage.src = imageSources[randomIndex];
+    }, 17000);
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

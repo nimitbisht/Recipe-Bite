@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Preferences</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='recommend.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='grow.css') }}">
+
+
+
+</head>
+<body>
+<!-- NAVBAR START -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" onclick="clickEffect(event)">
+    <div class="container">
+        <!-- <a class="navbar-brand" href="#">Logo</a> -->
+        <a class="navbar-brand" href="#">Recipe Bite
+          <img src="{{ url_for('static', filename='images/logo3.gif') }}" alt="Logo" width="47" height="47">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('recommended') }}">Recommend</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <!-- NAVBAR END -->
+
+<br><br><br>
+<div class="container added-preferences">
+    <!-- <h1>Added Recipes</h1> -->
+    <div class="description">
+        <h1 class="title">
+          <span class="gradient-text">Recommend </span>Page
+        </h1>
+      </div>
+        <!-- <p><strong>Preferences:</strong> {{ preferences }}</p> -->
+        <h5><strong>Preferences:</strong></h5>
+        <ul>
+            {% if preferences %}
+                {% for recipe_name in preferences.split(', ') %}
+                    <li onclick="viewRecipe('{{ recipe_name }}')">
+                        <strong></strong> {{ recipe_name }}
+                        
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+        
+
+
+</div>
+
+  <div class="container added-recipes">
+
+        <!-- <p><strong>recipe_ingredients:</strong> {{ recipe_names }}</p> -->
+
+        <h5><strong>Recommended Recipes:</strong></h5>
+        
+        <!-- <ul>
+            {% for recipe_name, similarity_score in recommendations %}
+            <li onclick="viewRecipe('{{ recipe_name }}')">
+                <strong>Recipe Name:</strong> {{ recipe_name }}<br>
+                <strong>Similarity Score:</strong> {{ similarity_score }}
+            </li>
+            {% endfor %}
+        </ul> -->
+        <ul>
+            {% for recipe in recipe_bar %}
+                <li onclick="viewRecipe('{{ recipe.name }}')">
+
+                    <img class="recipe-image" src="{{ recipe.image_url }}" alt="{{ recipe.name }}" style="max-width: 200px;"><br>
+
+                <div class="item__info2">
+
+                    <h2>{{ recipe.name }}</h2> <br>
+                    <strong>Category : </strong> {{ recipe.category }}<br>
+                    <strong>Similarity Score : </strong> {{ recipe.similarity_score }}<br>
+                    <strong>In Profile : </strong> {{ recipe.in_profile }}<br>
+
+                </div>
+
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function viewRecipe(recipeName) {
+            window.location.href = "/detail_by_name/" + recipeName;
+        }
+    </script>
+</body>
+</html>

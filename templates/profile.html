@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='grow.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    {{ toastr.include_jquery() }}
+    {{ toastr.include_toastr_css() }}
+    {{ toastr.message() }}
+</head>
+
+<body>
+
+<!-- NAVBAR START -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" onclick="clickEffect(event)">
+    <div class="container">
+      <!-- <a class="navbar-brand" href="#">Logo</a> -->
+      <a class="navbar-brand" href="#">Recipe Bite
+        <img src="{{ url_for('static', filename='images/logo3.gif') }}" alt="Logo" width="47" height="47">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('recommended') }}">Recommend</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Profile</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<!-- NAVBAR END -->
+
+<br><br>
+    <main>
+      <br>
+      {{ toastr.include_toastr_js() }}
+      <div class="description">
+        <h1 class="title">
+          <span class="gradient-text">Profile </span>Page
+        </h1>
+      </div>
+
+
+    <div class="container profile" >
+        <!-- <h1> Profile Page</h1> -->
+
+        <br><br>
+        <ul>
+        <li><strong>User ID : </strong> {{ data[0][0] }}</li>
+        <li><strong>Username : </strong> {{ data[0][1] }}</li>
+        <li><strong>Email : </strong> {{ data[0][2] }}</li>
+
+        <div class="fav-container">
+        <li><strong>Favorite Recipe : </strong> {{ data[0][4] }}</li>
+        </div>
+
+    </ul>
+<br><br>
+        <!-- Button to open modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRecipeModal">
+            Add Recipe
+        </button>
+
+<div class="logout">
+        <br>
+        <p>Want to Logout? Click   <a href="{{ url_for('logout') }}" class="logout-button">Logout</a></p>
+        <br><br><br>
+</div>
+        <!-- Modal -->
+        <div class="modal fade" id="addRecipeModal" tabindex="-1" role="dialog" aria-labelledby="addRecipeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addRecipeModalLabel">Add Recipe</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form for adding recipe -->
+                        <form id="addRecipeForm" action="/add_recipe" method="post">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="ingredients">Ingredients:</label>
+                                <textarea class="form-control" id="ingredients" name="ingredients"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="instructions">Instructions:</label>
+                                <textarea class="form-control" id="instructions" name="instructions"></textarea>
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="validateForm()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+
+
+
+    <!-- Bootstrap JS (optional if you need modal functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var ingredients = document.getElementById("ingredients").value;
+            var instructions = document.getElementById("instructions").value;
+
+            if (name.trim() === '' || ingredients.trim() === '' || instructions.trim() === '') {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            document.getElementById("addRecipeForm").submit();
+        }
+    </script>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
