@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Tilt+Neon&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: 00%;
+  scroll-behavior: smooth;
+}
+#dish_image {
+  position: absolute;
+  top: -150%; 
+  right: 0;
+  transform: translateX(110%);
+  z-index: -1;
+}
+#dish_image img {
+  width: 400px; 
+  height: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-before: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+  -webkit-padding-after: 0;
+  border: 0;
+}
+
+legend {
+  margin: 0;
+  padding: 0;
+  display: block;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+  color: #fff;
+  padding: 0 20px;
+  font-family: "Tilt Neon", sans-serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 30px;
+  margin-left: -70px;
+}
+
+legend .description {
+  color: #fff;
+  padding: 0 50px;
+}
+
+legend .description > h1 {
+  font-family: "Tilt Neon", sans-serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+legend .description > p {
+  font-family: "Tilt Neon", sans-serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+legend .gradient-text {
+  font-family: "Tilt Neon", sans-serif;
+  background-image: linear-gradient(
+    90deg,
+    rgb(233, 196, 106) 0%,   
+    rgb(244, 162, 97) 25%,    
+    rgb(233, 196, 106) 50%,   
+    rgb(233, 196, 106) 75%,       
+    rgb(233, 196, 106) 100%          
+
+
+  );
+  color: transparent;
+  background-size: contain;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+legend .description > p {
+  font-family: "Tilt Neon", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+.s006 {
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 15px;
+  background: url("images/food.jpg");
+  background-size: cover;
+  z-index: 1; /* Add this layer */
+  position: relative; /* Add this layer */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 0px;
+  overflow-x: hidden; /* Change from auto to hidden */
+  overflow-y: hidden; /* Change from auto to hidden */
+
+}
+/* Layer bfore content */
+.s006::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  pointer-events: none; 
+  z-index: -1; 
+
+}
+
+.s006 form {
+  width: 100%;
+  max-width: 790px;
+  transform: translateY(-20%);
+
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('fonts/JUST Sans ExBold.otf') format('truetype'); /* Specify the path to the .ttf file */
+}
+
+
+.s006 form h1 {
+  /* font-family: 'CustomFont', sans-serif; */
+  font-size: 27px;
+
+  color: transparent; 
+  /* font-weight: 900; */
+  /* transform: translateX(100%); */
+  /* text-align: center; */
+  margin-bottom: 100px;
+  -webkit-text-stroke: 0.7px rgb(255, 255, 255);
+  -webkit-text-fill-color: rgb(255, 255, 255);
+}
+
+
+
+.s006 form .inner-form {
+  position: relative;
+  width: 100%;
+  margin-bottom: 17px;
+  max-width: 600px; /* Adjust the max-width as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.s006 form .inner-form .input-field {
+
+  height: 70px;
+  width: 90%;
+  position: relative;
+
+}
+
+/* check more */
+.input-field {
+  display: flex;
+  align-items: center;
+}
+.input-field input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
+
+/* suggestion */
+.s006 form .inner-form .input-field input {
+  height: 100%;
+  background: transparent;
+  border: 1px solid #868282;
+  background: #fff;
+  display: block;
+  width: 100%;
+  padding: 14px 32px 10px 70px;
+  font-size: 18px;
+  color: #000000;
+  border-radius: 34px;
+}
+
+.s006 form .inner-form .input-field input.placeholder {
+  color: #ccc;
+  font-size: 18px;
+}
+
+.s006 form .inner-form .input-field input:-moz-placeholder {
+  color: #ccc;
+  font-size: 18px;
+}
+
+.s006 form .inner-form .input-field input::-webkit-input-placeholder {
+  color: #b8b1b1;
+  font-size: 18px;
+}
+
+.s006 form .inner-form .input-field input:hover, .s006 form .inner-form .input-field input:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
+.s006 form .inner-form .input-field .btn-search {
+  width: 70px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  align-items: center;
+
+}
+
+.s006 form .inner-form .input-field .btn-search svg {
+  fill: #776666; 
+  width: 30px;
+  height: 30px;
+  transition: all .2s ease-out, color .2s ease-out;
+}
+
+.s006 form .inner-form .input-field .btn-search:hover, .s006 form .inner-form .input-field .btn-search:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.s006 form .inner-form .input-field .btn-search:hover svg, .s006 form .inner-form .input-field .btn-search:focus svg {
+  fill: #000000;
+}
+
+.suggestion-wrap {
+  padding: 0 15px;
+  
+}
+
+.suggestion-wrap span {
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  font-family: "Tilt Neon", sans-serif;
+
+  /* font-family: 'Helvetica', sans-serif; */
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 15px; /* Adjust padding as needed */
+  line-height: 32px;
+  color: #fff;
+  border-radius: 20px;
+  margin-right: 10px;
+  margin: 5px;
+
+  margin-bottom: 10px;
+}
+.suggestion-wrap span:hover {
+  background-color: #3d3c3c;
+}
+@media screen and (max-width: 767px) {
+  .s006 form .inner-form .input-field {
+    margin-bottom: 20px;
+    height: 50px;
+  }
+  .s006 form .inner-form .input-field input {
+    padding-left: 55px;
+    font-size: 16px;
+  }
+  .s006 form .inner-form .input-field .btn-search svg {
+    width: 26px;
+    height: 26px;
+  }
+}

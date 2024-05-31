@@ -1,0 +1,194 @@
+/* static/styles.css*/
+
+/*  navbar  */
+    /* Additional custom footer */
+    .footer {
+      background-color: #212529;
+      color: #ffffff;
+      background: url("images/food.jpg");
+
+      padding: 50px 0;
+    }
+    .footer p {
+      color: #b0bec5;
+    }
+    .footer ul li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+    .footer ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer ul li a:hover {
+      color: #b0bec5;
+    }
+
+
+.navbar {
+  /* background-color: transparent !important; */
+  background: url("images/food.jpg");
+  /* height: 65px; */
+
+}
+
+/* Blue box hover effect */
+.navbar-nav .nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+  /* color: black !important;
+  background-color: transparent !important; */
+
+}
+
+.navbar-nav .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::before {
+  background-color: rgb(122, 122, 141); 
+}
+
+/* 
+.navbar .btn-clear:hover,
+.navbar .btn-clear:focus {
+  color: #000;
+  transform: translateY(-50%) scale(1.2);
+} */
+
+
+
+#cursor-follower {
+  position: absolute;
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50%;
+  background: rgba(173, 170, 170, 0.75) !important; /* Grey background with important to override other styles */
+  box-shadow: 0 0 8px rgba(173, 173, 173, 0.6); /* Soft grey glow */
+  pointer-events: none;
+  display: none; /* Initially hidden */
+  transition: transform 0.2s ease; /* Smooth scaling transition */
+  z-index: 4;  /* Higher z-index */
+
+}
+
+
+.click-circle {
+  z-index: 4;  /* Higher z-index */
+
+  position: absolute;
+  width: 20px; /* Initial width of the circle */
+  height: 20px; /* Initial height of the circle */
+  border-radius: 50%; /* Makes the div circular */
+  background-color: rgba(185, 180, 180, 0.5)!important; /* Initial background color with transparency */
+  pointer-events: none; /* Makes sure the circle doesn't interfere with other mouse events */
+  will-change: transform, opacity; /* Optimizes animations */
+}
+/* Button-like link styles */
+.btn-style {
+  background-color: rgba(0, 123, 255, 0.5); /* Semi-transparent background for buttons */
+  color: white; /* Text color */
+  margin: 5px; /* Space around buttons */
+  border-radius: 5px; /* Rounded corners for buttons */
+  padding: 5px 10px; /* Padding inside buttons */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.btn-style:hover, .btn-style:focus {
+  background-color: #0056b3; /* Darker shade on hover */
+  color: #fff; /* Keeping text color white on hover */
+  text-decoration: none; /* Remove underline from links */
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+      margin-top: 0.5rem; /* Adjust top margin on smaller screens */
+  }
+  .btn-style {
+      display: block;
+      width: 100%; /* Full-width buttons on smaller screens */
+  }
+}
+
+.btn-clear {
+
+  position: absolute;
+  right: 50px; /* Adjust as needed based on your input field's padding */
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: gray; /* Default color */
+  cursor: pointer;
+  font-size: 16px;
+  outline: none; /* Removes the focus outline */
+  transition: color 0.3s, transform 0.3s; /* Smooth transition for color and scale */
+}
+
+.btn-clear:hover, .btn-clear:focus {
+  color: #000; /* Darker color on hover for better visibility */
+  transform: translateY(-50%) scale(1.2); /* Slightly enlarge button on hover */
+}
+
+
+/* Styles for dynamically hidden panels */
+.hidden {
+  display: none;
+}
+
+.panel {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Styles for search inputs and buttons within panels */
+.search-input, .btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+/* Styles for the lists within panels */
+.list {
+  height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.list label {
+  display: block;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.list input[type="checkbox"] {
+  margin-right: 10px;
+}

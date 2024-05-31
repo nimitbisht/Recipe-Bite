@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Tilt+Neon&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    display: grid;
+    /* font-family: 'Roboto',sans-serif; */
+    font-family: "Tilt Neon", sans-serif;
+
+    color: #060606;
+    background-color: #f4f4f4;
+}
+
+.summary-container {
+  max-height: 130px; /* Adjust the value as needed */
+  overflow: hidden; /* Hide overflow by default */
+  padding: 5px; /* Optional: Add padding for better readability */
+}
+
+.summary-container:hover {
+  overflow: auto; /* Show scrollbar on hover if content exceeds max height */
+}
+.Search-recipes {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+h1, h2 {
+    font-family: "Tilt Neon", sans-serif;
+    color: #2C3E50;
+  }
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  h5{
+    margin-bottom: 20px;
+
+  }
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Search-recipes li {
+    max-width: 800px;
+
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    /* Change cursor to pointer */
+    display: flex; /* Added */
+    align-items: center; /* Added */
+}
+
+.Search-recipes li:hover {
+    background-color: #b1b1b1;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+  }
+.search-form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-input {
+    padding: 8px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.search-button {
+  padding: 8px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for smooth effect */
+}
+.search-button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+.recipe-image { /* Added */
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */
+    margin-right: 15px; /* Adjust spacing */
+    border-radius: 5px; /* Rounded corners */
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: -100px;
+    overflow: hidden;
+    cursor: pointer;
+    object-fit: cover; /* Ensures images are nicely cropped */
+
+}
+
+.recipe-image:hover {
+    transform: scale(1.1);
+    transition: transform 1s cubic-bezier(.25, 0.45, 0.45, 0.95);
+  }
+
+
+  .item__info {
+    height: 90px;
+    width: 200px;
+    margin-top: 150px;
+    margin-left: -250px;
+    text-transform: capitalize;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .item__info2 {
+    width: 400px;
+    height: 60px; /* Adjust the height here */
+    margin-left: 85px;
+    margin-bottom: 180px;
+    padding: 10px;
+    text-transform: capitalize;
+    display: inline-block; /* Change from block to inline-block */
+    vertical-align: top; /* Align the containers at the top */
+  
+    flex-grow: 1; /* Takes available space */
+  }

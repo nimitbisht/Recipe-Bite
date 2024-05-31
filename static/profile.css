@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Tilt+Neon&display=swap");
+
+
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.logout-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #d33343; /* Red color */
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.logout-button:hover {
+  background-color: #bb1223; /* Darker red on hover */
+  color: white;
+
+}
+.logout{
+  margin-left: 70%;
+
+}
+
+.btn-primary{
+  margin-left: 3%;
+
+}
+
+
+.fav-container {
+  max-height: 100px; /* Adjust the value as needed */
+  overflow: hidden; /* Hide overflow by default */
+}
+
+.fav-container:hover {
+  overflow: auto; /* Show scrollbar on hover if content exceeds max height */
+}
+
+
+
+
+
+
+
+  main {
+    padding: 2.5rem;
+    background-color: var(--white);
+    border-radius: 24px;
+
+    padding: 0;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 0px 20px 20px 0px var(--text-light);
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+
+    font-size: 1.1rem;
+
+  }
+
+  h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2C3E50;
+  }
+  h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+
+
+  strong {
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+  }
+
+
+ul {
+    list-style: none;
+    padding: 10;
+    margin: 0;
+}
+
+  .profile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
